@@ -57,7 +57,7 @@ claude-code-mvp-guide/
 | **Claude Pro** | [claude.ai](https://claude.ai) | $20/month subscription |
 | **Supabase** | [supabase.com](https://supabase.com) | Free account + new project |
 | **Groq** | [console.groq.com](https://console.groq.com) | Free API key (no credit card) |
-| **Kiwi.com Tequila** | [tequila.kiwi.com](https://tequila.kiwi.com) | Free API key for flight search |
+| **SerpAPI** | [serpapi.com](https://serpapi.com) | Free API key (100 searches/month) |
 | **Vercel** | [vercel.com](https://vercel.com) | Free account (connect GitHub) |
 
 ### Step 2: Install Claude Code
@@ -145,7 +145,7 @@ cp -r .claude/ /path/to/trip-planner/.claude/
 
 What each file does:
 - **`CLAUDE.md`** - The most important file. Tells Claude exactly what to build and how. Loaded into every prompt automatically.
-- **`.env.local`** - Fill in your API keys (Supabase, Groq, Kiwi). Never committed to git.
+- **`.env.local`** - Fill in your API keys (Supabase, Groq, SerpAPI). Never committed to git.
 - **`.claude/settings.json`** - Pre-configured with a sound notification hook (plays a sound when Claude finishes a task so you don't have to watch the screen). Also lists the recommended skills.
 
 > **Sound hook note:** The included hook uses `afplay` (macOS). On Linux, edit `.claude/settings.json` and replace `afplay` with `paplay`. On Windows WSL, use `powershell.exe -c '(New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync()'`. Other macOS sounds: `Funk.aiff`, `Hero.aiff`, `Submarine.aiff` - all in `/System/Library/Sounds/`.
@@ -168,7 +168,7 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | 2 | [02-database.md](prompts/02-database.md) | 5 min | Create database tables via Supabase MCP |
 | 3 | [03-scaffold-ui.md](prompts/03-scaffold-ui.md) | 20 min | Scaffold Next.js + build the UI |
 | 4 | [04-trip-generation.md](prompts/04-trip-generation.md) | 15 min | Add AI trip generation (Groq) |
-| 5 | [05-flight-search.md](prompts/05-flight-search.md) | 15 min | Add real flight search (Kiwi API) |
+| 5 | [05-flight-search.md](prompts/05-flight-search.md) | 15 min | Add real flight search (SerpAPI Google Flights) |
 | 6 | [06-auth-save.md](prompts/06-auth-save.md) | 10 min | Add login + save trips |
 | 7 | [07-polish-deploy.md](prompts/07-polish-deploy.md) | 15 min | Polish + deploy to Vercel |
 | 8 | [08-visual-check.md](prompts/08-visual-check.md) | 5 min | Verify everything with screenshots |
@@ -187,7 +187,7 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | Groq API (app runtime) | $0 |
 | Supabase (database + auth) | $0 |
 | Vercel (hosting) | $0 |
-| Kiwi.com (flight search) | $0 |
+| SerpAPI (flight search) | $0 |
 | Leaflet (maps) | $0 |
 | Domain (optional .xyz) | $0-1 |
 | **Total** | **$20** |
@@ -198,14 +198,16 @@ The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of
 
 ## What You'll Have When Done
 
-- Landing page with trip input form
+- Landing page with trip input form (synced date picker + days slider)
 - AI-generated daily itinerary (food, attractions, tips per day)
-- Real flight search with flexible date pricing
+- Real cost breakdown: flights, accommodation (central vs budget), food (mid vs luxury), activities
+- Real flight search with flexible date pricing (whole month view)
 - Interactive map with attraction markers
 - User login (Google + email)
 - Save trips to your account
 - Share trips via public URL
-- Hebrew RTL interface
+- Full Hebrew RTL interface (all text, buttons, navigation)
+- All prices in Israeli Shekels (₪)
 - Mobile responsive
 - Live on Vercel
 
@@ -219,7 +221,7 @@ The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of
 | Styling | Tailwind CSS + shadcn/ui | Claude generates perfect shadcn components |
 | Database | Supabase | MCP support = Claude handles it directly |
 | AI | Groq (Llama 3.3 70B) | Free, fast, OpenAI-compatible format |
-| Flights | Kiwi.com Tequila API | Simple API, good free tier |
+| Flights | SerpAPI Google Flights | Real Google Flights data, 100 free searches/month |
 | Maps | Leaflet + OpenStreetMap | No API key needed, free forever |
 | Hosting | Vercel | Free tier, one-command deploy |
 

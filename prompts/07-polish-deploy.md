@@ -18,7 +18,7 @@ Final polish and deployment:
 
 2. Add error handling:
    - Show user-friendly error if Groq API fails
-   - Show fallback if Kiwi flights returns no results
+   - Show fallback if flight search returns no results
    - Handle network errors gracefully
 
 3. Add meta tags for sharing:
