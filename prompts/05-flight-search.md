@@ -9,7 +9,7 @@
 ## Prompt
 
 ```
-use context7 for Next.js API routes.
+use context7 for Next.js API routes, Leaflet, and react-leaflet.
 
 Add real flight search using the Kiwi.com Tequila API:
 

@@ -9,7 +9,7 @@ You just built and deployed a real app in 2 hours. Here's what to learn next.
 Now that you understand how Claude Code works, install RALPH for your next project:
 
 ```bash
-claude plugin install snarktank/ralph
+claude install-skill snarktank/ralph
 ```
 
 RALPH automates the build cycle:

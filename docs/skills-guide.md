@@ -40,13 +40,13 @@ Skills are instruction files that guide Claude's behavior. Each one adds ~500-20
 - Makes UI look professional on first render
 - Without it: expect 3-4 "make it look better" retries ($3-5 wasted)
 - **ROI: 3-5x return on context cost**
-- Install: `claude plugin install anthropics/frontend-design`
+- Install: `claude install-skill anthropics/frontend-design`
 
 **find-skills** (Vercel Labs - 418K installs, #1 most installed)
 - Meta-skill that discovers and installs other skills
 - Near-zero context cost (~200 tokens)
 - Useful when you need a skill mid-project but don't know which one
-- Install: `claude skill install vercel-labs/find-skills`
+- Install: `claude install-skill vercel-labs/find-skills`
 
 ### Tier 2: Recommended
 
@@ -54,7 +54,7 @@ Skills are instruction files that guide Claude's behavior. Each one adds ~500-20
 - Codified React/Next.js patterns for production apps
 - Prevents common App Router mistakes
 - Context cost: ~1000 tokens
-- Install: `claude skill install vercel-labs/vercel-react-best-practices`
+- Install: `claude install-skill vercel-labs/vercel-react-best-practices`
 
 ### Tier 3: Learn for Later (Don't Install for First Project)
 

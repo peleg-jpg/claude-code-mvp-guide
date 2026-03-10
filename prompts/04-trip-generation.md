@@ -37,7 +37,7 @@ Create the AI trip generation flow:
 
 5. Connect the form submission on the homepage to this API route
 6. Show a loading skeleton while generating
-7. Save the generated trip to Supabase after generation
+7. Store the generated trip in React state for now (we'll save to Supabase in Phase 6 after adding auth)
 
 The Groq API uses the exact same format as OpenAI - just different baseURL.
 ```

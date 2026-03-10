@@ -39,6 +39,7 @@ claude-code-mvp-guide/
 - A computer with a terminal (Mac, Linux, or WSL on Windows)
 - [Node.js 18+](https://nodejs.org/) installed
 - [VS Code](https://code.visualstudio.com/) installed
+- [Vercel CLI](https://vercel.com/docs/cli): `npm i -g vercel`
 - A GitHub account (for deployment)
 - $20 for a Claude Pro subscription
 
@@ -72,7 +73,12 @@ claude
 
 If you'll be working with Hebrew text, install the RTL extension:
 
-- **Extension:** [rtl-for-vs-code-agents](https://github.com/GuyRonnen/rtl-for-vs-code-agents)
+```bash
+code --install-extension GuyRonnen.rtl-for-vs-code-agents
+```
+
+Or search "rtl-for-vs-code-agents" in the VS Code Extensions panel. [GitHub](https://github.com/GuyRonnen/rtl-for-vs-code-agents)
+
 - Fixes Hebrew/Arabic display in Claude Code chat
 - Zero performance cost - pure display fix
 
@@ -101,8 +107,12 @@ claude mcp add playwright -- npx -y @anthropic-ai/mcp-server-playwright
 ### Step 5: Install Skills
 
 ```bash
-claude plugin install anthropics/frontend-design
+claude install-skill anthropics/frontend-design
+claude install-skill vercel-labs/find-skills
+claude install-skill vercel-labs/vercel-react-best-practices
 ```
+
+> **Note:** If the command above doesn't work, try `claude plugin install` instead - the exact command may vary by Claude Code version.
 
 See [docs/skills-guide.md](docs/skills-guide.md) for the full analysis of which skills to install and which to skip.
 
