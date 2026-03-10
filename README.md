@@ -31,7 +31,8 @@ claude-code-mvp-guide/
 └── docs/
     ├── credit-tips.md     ← How to save money (8 rules)
     ├── skills-guide.md    ← Which skills to install (and which to skip)
-    └── next-steps.md      ← What to learn after your first MVP
+    ├── next-steps.md      ← What to learn after your first MVP
+    └── supabase-mcp-setup.md ← Detailed Supabase MCP setup walkthrough
 ```
 
 ---
@@ -97,10 +98,18 @@ claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 **Supabase MCP** - Lets Claude manage your database directly:
 ```bash
 claude mcp add supabase -- npx -y @supabase/mcp-server-supabase@latest \
-  --access-token YOUR_SUPABASE_ACCESS_TOKEN \
   --project-ref YOUR_PROJECT_REF
 ```
-> Get your access token from Supabase Dashboard > Settings > API. Get your project ref from the URL: `https://supabase.com/dashboard/project/YOUR_PROJECT_REF`
+
+> **How to set up Supabase MCP:**
+> 1. Read the official setup guide first: [supabase.com/docs/guides/getting-started/mcp](https://supabase.com/docs/guides/getting-started/mcp)
+> 2. Find your project ref in your Supabase Dashboard URL: `https://supabase.com/dashboard/project/YOUR_PROJECT_REF`
+> 3. On first run, it will open a browser for OAuth login - no access token needed
+> 4. **Important:** Use a development project, not production. Set `--read-only` if you want extra safety.
+>
+> If your environment doesn't support browser OAuth (CI, SSH), generate a personal access token from Supabase Dashboard > Account > Access Tokens, then add `--access-token YOUR_TOKEN` to the command above.
+>
+> **Full walkthrough with screenshots:** [docs/supabase-mcp-setup.md](docs/supabase-mcp-setup.md)
 
 **Playwright** - Lets Claude take screenshots to verify the UI:
 ```bash
