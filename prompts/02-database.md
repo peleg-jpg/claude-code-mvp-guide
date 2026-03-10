@@ -11,7 +11,7 @@
 ```
 Using the Supabase MCP, create these database tables (adjust if your Phase 1 plan suggested something different):
 
-- trips (id uuid, user_id uuid references auth.users, destination text, budget numeric, days integer, start_date date, end_date date, created_at timestamptz)
+- trips (id uuid, user_id uuid references auth.users, destination text, budget numeric, days integer, start_date date, end_date date, num_travelers integer default 2, traveler_type text, age_range text, interests text[], created_at timestamptz)
 - itinerary_days (id uuid, trip_id uuid references trips, day_number integer, plan_json jsonb)
 - saved_flights (id uuid, trip_id uuid references trips, flight_data jsonb)
 

@@ -199,15 +199,18 @@ The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of
 ## What You'll Have When Done
 
 - Landing page with trip input form (synced date picker + days slider)
-- AI-generated daily itinerary (food, attractions, tips per day)
-- Real cost breakdown: flights, accommodation (central vs budget), food (mid vs luxury), activities
-- Real flight search with flexible date pricing (whole month view)
+- Traveler preferences: group size, type (solo/couple/family/friends), age range
+- Interest survey: attractions, nightlife, food, nature, shopping, culture, beach, adventure
+- AI-generated daily itinerary personalized to your interests and traveler type
+- Trip summary card: top highlights, main restaurants, key activities at a glance
+- Real cost breakdown for your entire group: flights, accommodation (central vs budget), food (mid vs luxury), activities
+- Real flight search with flexible date pricing (weekly summaries within a month)
 - Interactive map with attraction markers
 - User login (Google + email)
 - Save trips to your account
 - Share trips via public URL
 - Full Hebrew RTL interface (all text, buttons, navigation)
-- All prices in Israeli Shekels (₪)
+- All prices in Israeli Shekels (₪) - per person and total for group
 - Mobile responsive
 - Live on Vercel
 
