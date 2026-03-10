@@ -1,4 +1,4 @@
-# 7 Rules to Minimize Wasted Credits
+# 8 Rules to Minimize Wasted Credits
 
 These tips will save you $10-20 per project. Follow them religiously.
 
@@ -77,8 +77,19 @@ Do this whenever the conversation starts feeling slow or you've done 10+ back-an
 
 **Saves: ~$1-2 per long session**
 
+## 8. Opus for Planning, Sonnet for Building
+
+Claude Code lets you switch models with `/model`. Use this to your advantage:
+
+- **Phase 1 (planning):** Type `/model opus` - Opus 4.6 is smarter and catches architecture mistakes. Planning uses fewer tokens, so the higher cost per token barely matters.
+- **Phases 2-8 (building):** Type `/model sonnet` - Sonnet 4.6 writes code just as well for most tasks, but costs significantly less per token. You get more output per dollar.
+
+Think of it like hiring an architect (Opus) to design the house, then a contractor (Sonnet) to build it. The architect's hourly rate is higher, but you only need them for 10 minutes.
+
+**Saves: ~$3-5 per project**
+
 ---
 
-## Total Potential Savings: $13-27 per project
+## Total Potential Savings: $16-32 per project
 
 That's the difference between burning through your credits in 1 hour vs. getting a full deployed app.

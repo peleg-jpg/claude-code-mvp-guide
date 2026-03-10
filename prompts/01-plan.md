@@ -2,6 +2,8 @@
 
 **Mode: Plan Mode (press Shift+Tab first!)**
 
+**Model: Opus 4.6** - Type `/model opus` before starting. Opus is smarter for architecture decisions. Planning uses few tokens, so the higher cost barely matters.
+
 **Time: ~10 minutes**
 
 Plan Mode is nearly free - Claude only reads and thinks, it doesn't write code. This saves you serious credits.
@@ -35,4 +37,4 @@ Don't write any code yet. Just plan the architecture clearly.
 
 Claude will output a structured plan. Review it. If something looks off, ask Claude to adjust before moving to Phase 2. Changes are free in Plan Mode.
 
-**When you're happy with the plan: press Shift+Tab to exit Plan Mode**, then move to Phase 2.
+**When you're happy with the plan: press Shift+Tab to exit Plan Mode**, then type `/model sonnet` to switch to Sonnet 4.6 for building (cheaper per token). Then move to Phase 2.

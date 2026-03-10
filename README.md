@@ -116,7 +116,36 @@ claude install-skill vercel-labs/vercel-react-best-practices
 
 See [docs/skills-guide.md](docs/skills-guide.md) for the full analysis of which skills to install and which to skip.
 
-### Step 6: Create Your Project
+### Step 6: Add a Sound Notification Hook
+
+Claude Code can play a sound when it finishes a task, so you don't have to stare at the screen waiting. Add this to your global settings:
+
+Open (or create) `~/.claude/settings.json` and add a `hooks` section:
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+> **macOS only.** On Linux, replace `afplay` with `paplay` or `aplay`. On Windows WSL, use `powershell.exe -c '(New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync()'`.
+>
+> Other nice macOS sounds: `Funk.aiff`, `Hero.aiff`, `Submarine.aiff`, `Morse.aiff` - all in `/System/Library/Sounds/`.
+
+Restart Claude Code after adding the hook.
+
+### Step 7: Create Your Project
 
 ```bash
 mkdir trip-planner && cd trip-planner
@@ -150,6 +179,8 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | 8 | [08-visual-check.md](prompts/08-visual-check.md) | 5 min | Verify everything with screenshots |
 
 **Important:** Start Phase 1 in **Plan Mode** (press `Shift+Tab`). Plan Mode is nearly free - it only reads and thinks. Building is expensive. One minute of planning saves ten minutes of building.
+
+**Pro tip:** Use `/model opus` for Phase 1 (planning) and `/model sonnet` for Phases 2-8 (building). Opus is smarter for architecture decisions, Sonnet is cheaper for writing code. See [credit-tips.md](docs/credit-tips.md) for details.
 
 ---
 
