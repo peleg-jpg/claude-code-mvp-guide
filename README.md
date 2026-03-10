@@ -17,6 +17,8 @@ claude-code-mvp-guide/
 ├── README.md              ← You are here
 ├── CLAUDE.md              ← Drop this into your project (critical!)
 ├── .env.example           ← All API keys you need
+├── .claude/               ← Pre-configured Claude Code settings
+│   └── settings.json      ← Sound hooks + recommended skills
 ├── prompts/               ← Copy-paste prompts for each phase
 │   ├── 01-plan.md
 │   ├── 02-database.md
@@ -27,7 +29,7 @@ claude-code-mvp-guide/
 │   ├── 07-polish-deploy.md
 │   └── 08-visual-check.md
 └── docs/
-    ├── credit-tips.md     ← How to save money
+    ├── credit-tips.md     ← How to save money (8 rules)
     ├── skills-guide.md    ← Which skills to install (and which to skip)
     └── next-steps.md      ← What to learn after your first MVP
 ```
@@ -69,9 +71,11 @@ claude
 /login
 ```
 
-### Step 3: Install VS Code RTL Extension (for Hebrew users)
+### Step 3: (Optional) VS Code RTL Extension - for Hebrew/Arabic speakers
 
-If you'll be working with Hebrew text, install the RTL extension:
+> **This is for the VS Code IDE interface only** - it fixes how Hebrew and Arabic text displays in Claude Code's chat panel inside VS Code. It has nothing to do with the app you're building (the app's RTL is handled by the code itself).
+
+Working in Hebrew? Install this extension to make Claude's chat readable:
 
 ```bash
 code --install-extension GuyRonnen.rtl-for-vs-code-agents
@@ -79,8 +83,7 @@ code --install-extension GuyRonnen.rtl-for-vs-code-agents
 
 Or search "rtl-for-vs-code-agents" in the VS Code Extensions panel. [GitHub](https://github.com/GuyRonnen/rtl-for-vs-code-agents)
 
-- Fixes Hebrew/Arabic display in Claude Code chat
-- Zero performance cost - pure display fix
+Skip this step if you work in English only.
 
 ### Step 4: Install MCPs (Model Context Protocol servers)
 
@@ -116,44 +119,27 @@ claude install-skill vercel-labs/vercel-react-best-practices
 
 See [docs/skills-guide.md](docs/skills-guide.md) for the full analysis of which skills to install and which to skip.
 
-### Step 6: Add a Sound Notification Hook
-
-Claude Code can play a sound when it finishes a task, so you don't have to stare at the screen waiting. Add this to your global settings:
-
-Open (or create) `~/.claude/settings.json` and add a `hooks` section:
-
-```json
-{
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-> **macOS only.** On Linux, replace `afplay` with `paplay` or `aplay`. On Windows WSL, use `powershell.exe -c '(New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync()'`.
->
-> Other nice macOS sounds: `Funk.aiff`, `Hero.aiff`, `Submarine.aiff`, `Morse.aiff` - all in `/System/Library/Sounds/`.
-
-Restart Claude Code after adding the hook.
-
-### Step 7: Create Your Project
+### Step 6: Create Your Project
 
 ```bash
 mkdir trip-planner && cd trip-planner
 ```
 
-Copy the `CLAUDE.md` file from this repo into your project folder. This is the single most important file - it tells Claude exactly what to build and how.
+Copy these files from this repo into your project folder:
 
-Copy `.env.example` to `.env.local` and fill in your API keys.
+```bash
+# From the root of this cloned repo:
+cp CLAUDE.md /path/to/trip-planner/
+cp .env.example /path/to/trip-planner/.env.local
+cp -r .claude/ /path/to/trip-planner/.claude/
+```
+
+What each file does:
+- **`CLAUDE.md`** - The most important file. Tells Claude exactly what to build and how. Loaded into every prompt automatically.
+- **`.env.local`** - Fill in your API keys (Supabase, Groq, Kiwi). Never committed to git.
+- **`.claude/settings.json`** - Pre-configured with a sound notification hook (plays a sound when Claude finishes a task so you don't have to watch the screen). Also lists the recommended skills.
+
+> **Sound hook note:** The included hook uses `afplay` (macOS). On Linux, edit `.claude/settings.json` and replace `afplay` with `paplay`. On Windows WSL, use `powershell.exe -c '(New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync()'`. Other macOS sounds: `Funk.aiff`, `Hero.aiff`, `Submarine.aiff` - all in `/System/Library/Sounds/`.
 
 ---
 
@@ -232,7 +218,7 @@ The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of
 
 ## Learn More
 
-- [Credit-Saving Tips](docs/credit-tips.md) - 7 rules to minimize wasted tokens
+- [Credit-Saving Tips](docs/credit-tips.md) - 8 rules to minimize wasted tokens
 - [Skills Guide](docs/skills-guide.md) - Deep analysis of every skill and MCP
 - [Next Steps](docs/next-steps.md) - RALPH, debugging, and leveling up
 
