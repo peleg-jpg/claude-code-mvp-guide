@@ -40,7 +40,7 @@ Add real flight search using SerpAPI Google Flights:
 
 3. Create a city-to-IATA mapping helper:
    - Common Israeli airports: TLV (Ben Gurion), ETH (Eilat)
-   - Map destination city names to IATA codes (use Groq if needed for uncommon cities)
+   - Map destination city names to IATA codes (use OpenRouter if needed for uncommon cities)
 
 4. Add a flights section to the trip results page /app/trip/[id]/page.tsx:
    - For exact dates:

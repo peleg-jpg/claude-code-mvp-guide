@@ -17,7 +17,7 @@ Final polish and deployment:
    - Loading state on all buttons
 
 2. Add error handling:
-   - Show user-friendly error if Groq API fails
+   - Show user-friendly error if OpenRouter API fails
    - Show fallback if flight search returns no results
    - Handle network errors gracefully
 

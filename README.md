@@ -56,7 +56,7 @@ claude-code-mvp-guide/
 |---------|-----|---------------|
 | **Claude Pro** | [claude.ai](https://claude.ai) | $20/month subscription |
 | **Supabase** | [supabase.com](https://supabase.com) | Free account + new project |
-| **Groq** | [console.groq.com](https://console.groq.com) | Free API key (no credit card) |
+| **OpenRouter** | [openrouter.ai](https://openrouter.ai) | Free API key (100+ LLM models) |
 | **SerpAPI** | [serpapi.com](https://serpapi.com) | Free API key (100 searches/month) |
 | **Vercel** | [vercel.com](https://vercel.com) | Free account (connect GitHub) |
 
@@ -145,7 +145,7 @@ cp -r .claude/ /path/to/trip-planner/.claude/
 
 What each file does:
 - **`CLAUDE.md`** - The most important file. Tells Claude exactly what to build and how. Loaded into every prompt automatically.
-- **`.env.local`** - Fill in your API keys (Supabase, Groq, SerpAPI). Never committed to git.
+- **`.env.local`** - Fill in your API keys (Supabase, OpenRouter, SerpAPI). Never committed to git.
 - **`.claude/settings.json`** - Pre-configured with a sound notification hook (plays a sound when Claude finishes a task so you don't have to watch the screen). Also lists the recommended skills.
 
 > **Sound hook note:** The included hook uses `afplay` (macOS). On Linux, edit `.claude/settings.json` and replace `afplay` with `paplay`. On Windows WSL, use `powershell.exe -c '(New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync()'`. Other macOS sounds: `Funk.aiff`, `Hero.aiff`, `Submarine.aiff` - all in `/System/Library/Sounds/`.
@@ -167,7 +167,7 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | 1 | [01-plan.md](prompts/01-plan.md) | 10 min | Plan the architecture (use Plan Mode!) |
 | 2 | [02-database.md](prompts/02-database.md) | 5 min | Create database tables via Supabase MCP |
 | 3 | [03-scaffold-ui.md](prompts/03-scaffold-ui.md) | 20 min | Scaffold Next.js + build the UI |
-| 4 | [04-trip-generation.md](prompts/04-trip-generation.md) | 15 min | Add AI trip generation (Groq) |
+| 4 | [04-trip-generation.md](prompts/04-trip-generation.md) | 15 min | Add AI trip generation (OpenRouter) |
 | 5 | [05-flight-search.md](prompts/05-flight-search.md) | 15 min | Add real flight search (SerpAPI Google Flights) |
 | 6 | [06-auth-save.md](prompts/06-auth-save.md) | 10 min | Add login + save trips |
 | 7 | [07-polish-deploy.md](prompts/07-polish-deploy.md) | 15 min | Polish + deploy to Vercel |
@@ -184,7 +184,7 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | Item | Cost |
 |------|------|
 | Claude Pro (1 month) | $20 |
-| Groq API (app runtime) | $0 |
+| OpenRouter API (app runtime) | $0 |
 | Supabase (database + auth) | $0 |
 | Vercel (hosting) | $0 |
 | SerpAPI (flight search) | $0 |
@@ -192,7 +192,7 @@ Follow the prompts in the `prompts/` folder, **in order**:
 | Domain (optional .xyz) | $0-1 |
 | **Total** | **$20** |
 
-The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of Claude API. Same quality, zero cost. Claude Pro handles the building.
+The trick: Use **OpenRouter** (access to 100+ models including free ones) for the app's AI feature instead of Claude API. Same quality, near-zero cost. Claude Pro handles the building.
 
 ---
 
@@ -223,7 +223,7 @@ The trick: Use **Groq** (free Llama 3.3 70B) for the app's AI feature instead of
 | Framework | Next.js 15 (App Router) | Claude knows it best, Vercel deploys it free |
 | Styling | Tailwind CSS + shadcn/ui | Claude generates perfect shadcn components |
 | Database | Supabase | MCP support = Claude handles it directly |
-| AI | Groq (Llama 3.3 70B) | Free, fast, OpenAI-compatible format |
+| AI | OpenRouter (100+ models) | Free tier + pay-per-use, OpenAI-compatible format |
 | Flights | SerpAPI Google Flights | Real Google Flights data, 100 free searches/month |
 | Maps | Leaflet + OpenStreetMap | No API key needed, free forever |
 | Hosting | Vercel | Free tier, one-command deploy |

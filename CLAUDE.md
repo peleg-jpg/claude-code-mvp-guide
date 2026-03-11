@@ -4,7 +4,7 @@
 - Next.js 15 App Router, TypeScript
 - Tailwind CSS + shadcn/ui components
 - Supabase (auth + PostgreSQL database)
-- Groq API with Llama 3.3 70B for trip generation (FREE - OpenAI-compatible)
+- OpenRouter API for trip generation (100+ models, OpenAI-compatible, free tier + pay-per-use)
 - SerpAPI Google Flights for flight search (FREE tier - 100 searches/month)
 - Leaflet + OpenStreetMap for maps (FREE, no API key)
 - Deploy on Vercel (FREE tier)
@@ -27,7 +27,7 @@
 
 ## Architecture
 - /app - Next.js pages and API routes
-- /app/api - Server-side API routes (Groq, SerpAPI flights, Supabase)
+- /app/api - Server-side API routes (OpenRouter, SerpAPI flights, Supabase)
 - /components - Reusable UI components (shadcn/ui based)
 - /components/ui - shadcn/ui primitives
 - /lib - Utility functions, API clients, Supabase client
@@ -35,7 +35,7 @@
 
 ## Key Features (in build order)
 1. Trip input form: destination, budget (₪), travelers (count + type), interests survey, synced days slider + date picker, flexible dates toggle
-2. AI-generated daily itinerary personalized by traveler type, interests, and group size - via Groq
+2. AI-generated daily itinerary personalized by traveler type, interests, and group size - via OpenRouter
 3. Real flight search via SerpAPI Google Flights with flexible date pricing
 4. Trip cost breakdown with REAL estimated rates - calculated for total number of travelers:
    - Flights: actual prices from SerpAPI x number of travelers
@@ -63,7 +63,7 @@ The form must collect traveler info BEFORE generating the trip:
   - Culture & museums
   - Beach & relaxation
   - Adventure & extreme sports
-- These preferences are sent to both the Groq API (for itinerary personalization) and affect the cost calculations
+- These preferences are sent to both the OpenRouter API (for itinerary personalization) and affect the cost calculations
 
 ## Synced Date Picker + Days Slider
 The date range picker and days slider MUST stay perfectly in sync at ALL times:
@@ -113,6 +113,6 @@ The app must show a detailed cost breakdown based on real data, calculated for A
 - All prices in ₪ (ILS)
 
 ## API Integration Notes
-- Groq: OpenAI-compatible, use `openai` npm package with baseURL: `https://api.groq.com/openai/v1`
+- OpenRouter: OpenAI-compatible, use `openai` npm package with baseURL: `https://openrouter.ai/api/v1`
 - SerpAPI: REST API, endpoint: `https://serpapi.com/search.json?engine=google_flights`
 - Supabase: Use `@supabase/supabase-js` client, auth helpers for Next.js

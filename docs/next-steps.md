@@ -76,6 +76,6 @@ Ideas for v2 (each could be a 30-min session):
 
 - Always start with Plan Mode
 - Use the same CLAUDE.md template pattern
-- Pick free-tier tools (Groq, Supabase, Vercel, Leaflet)
+- Pick free-tier tools (OpenRouter, Supabase, Vercel, Leaflet)
 - Install only the MCPs you need for THIS project
 - Read [credit-tips.md](credit-tips.md) before every session

@@ -14,14 +14,14 @@ use context7 for Next.js API routes.
 Create the AI trip generation flow:
 
 1. Install the openai npm package: npm install openai
-2. Create /lib/groq.ts - Groq client using OpenAI SDK:
-   - baseURL: "https://api.groq.com/openai/v1"
-   - apiKey from env: GROQ_API_KEY
-   - model: "llama-3.3-70b-versatile"
+2. Create /lib/openrouter.ts - OpenRouter client using OpenAI SDK:
+   - baseURL: "https://openrouter.ai/api/v1"
+   - apiKey from env: OPENROUTER_API_KEY
+   - Pick any model (e.g., "meta-llama/llama-3.3-70b-instruct", "google/gemini-2.0-flash-exp:free", or any model from openrouter.ai/models)
 
 3. Create API route /app/api/generate-trip/route.ts that:
    - Accepts POST with: destination, budget (₪ ILS), days, startDate, numberOfTravelers, travelerType (solo/couple/family/friends), ageRange, interests (array of selected categories)
-   - Calls Groq with a structured prompt asking for a JSON response containing:
+   - Calls OpenRouter with a structured prompt asking for a JSON response containing:
 
      PERSONALIZED ITINERARY:
      - Daily itinerary (morning, afternoon, evening) - in Hebrew
@@ -90,16 +90,16 @@ Create the AI trip generation flow:
 6. Show a loading skeleton while generating
 7. Store the generated trip in React state for now (we'll save to Supabase in Phase 6 after adding auth)
 
-The Groq API uses the exact same format as OpenAI - just different baseURL.
+OpenRouter uses the exact same format as OpenAI - just different baseURL. You can switch models anytime without changing code.
 All prices in ₪ (ILS). All costs calculated for the total group, not per person.
-The Groq prompt should generate realistic prices for the specific destination.
+The prompt should generate realistic prices for the specific destination.
 ```
 
 ---
 
 ## What to expect
 
-Claude will create the API route, Groq client, and results page. Test by submitting the form with:
+Claude will create the API route, OpenRouter client, and results page. Test by submitting the form with:
 - Destination: "לונדון" (London)
 - Budget: ₪10,000
 - 5 days, 2 travelers, couple, 25-35 age range
@@ -111,4 +111,4 @@ You should see a streaming itinerary that:
 - Shows a summary card at the top with highlights
 - Cost breakdown calculated for 2 people, not 1
 
-If the Groq call fails, check your API key in `.env.local`.
+If the OpenRouter call fails, check your API key in `.env.local`.
